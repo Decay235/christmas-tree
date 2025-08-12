@@ -1,0 +1,23 @@
+{
+  "name": "christmas-tree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "christmasTree.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Decay235/christmas-tree.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Decay235/christmas-tree/issues"
+  },
+  "homepage": "https://github.com/Decay235/christmas-tree#readme",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
