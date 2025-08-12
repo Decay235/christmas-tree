@@ -1,0 +1,26 @@
+name: CI  # Имя workflow, которое будет отображаться в интерфейсе GitHub Actions
+
+on:  # Секция "on" определяет триггеры — когда запускать workflow
+  push:  # При push (отправке изменений) в указанные ветки
+    branches: [ main ]  # Только для ветки main (можно добавить другие, например, [ main, develop ])
+  pull_request:  # При создании или обновлении pull request
+    branches: [ main ]  # Только если цель — ветка main
+
+jobs:  # Секция "jobs" — это задачи, которые выполняются параллельно или последовательно
+  test:  # Имя job (можно назвать иначе, например, run-tests)
+    runs-on: ubuntu-latest  # ОС виртуальной машины для выполнения (ubuntu-latest — последняя версия Ubuntu; альтернативы: windows-latest, macos-latest)
+
+    steps:  # Шаги внутри job — последовательные действия
+    - name: Checkout code  # Шаг 1: Получить код из репозитория
+      uses: actions/checkout@v4  # Использует готовое action от GitHub (v4 — версия; всегда проверяйте актуальную на docs.github.com)
+
+    - name: Set up Node.js  # Шаг 2: Установить Node.js
+      uses: actions/setup-node@v4  # Готовое action для Node.js
+      with:  # Параметры
+        node-version: '20'  # Версия Node.js (20 — LTS на 2025 год; можно указать 'lts' для последней LTS)
+
+    - name: Install dependencies  # Шаг 3: Установить зависимости из package.json
+      run: npm install  # Команда shell (npm install загрузит Jest и другие пакеты)
+
+    - name: Run tests  # Шаг 4: Запустить тесты
+      run: npm test  # Выполняет скрипт "test" из package.json (jest)
