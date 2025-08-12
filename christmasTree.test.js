@@ -14,12 +14,12 @@ describe('Christmas Tree Generator', () => {
     test('should generate correct tree for 3 floors', () => {
         const expectedOutput = 
 `      W
-       *
-     @* * * * *
-   * * * * * * * * *@
- @ * * * * * * * * * * * *
-    TTTTT
-    TTTTT`;
+      *
+     @ * *
+    * * * * @
+   @ * * * * *
+      TTTTT
+      TTTTT`;
 
         const result = generateChristmasTree(3, testOutputPath);
         
@@ -41,8 +41,8 @@ describe('Christmas Tree Generator', () => {
     test('should generate correct tree for 1 floor', () => {
         const expectedOutput = 
 `  W
-   *
- @* * * * *
+  *
+   @ * *
   TTTTT
   TTTTT`;
 
